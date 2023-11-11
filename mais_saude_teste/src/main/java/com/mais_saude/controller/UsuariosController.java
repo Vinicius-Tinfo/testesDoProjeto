@@ -5,15 +5,13 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.mais_saude.repository.UsuariosReposiroty;
 import com.mais_saude.model.UsuariosModel;
+import com.mais_saude.repository.UsuariosReposiroty;
 @Controller
 public class UsuariosController {
 
@@ -63,12 +61,20 @@ public class UsuariosController {
 		return ("/alterar");
 	  }
 
+	  @PostMapping("/{id}/atualizar")
+	  public String atualizar(@PathVariable long id, UsuariosModel usuarios){
+	    // if(!repo.exist(id)){
+	    if(!usuariorepository.existsById(id)){
+	      return "redirect:/";
+	    }
+
+	    usuariorepository.save(usuarios);
+
+	    return "redirect:/";
+	  }
 	  
-	//  @PostMapping("/administradores/{id}/atualizar")
-	//  public String atualizar(@PathVariable int id, Administrador administrador){
-	  //  // if(!repo.exist(id)){
-	    //if(!repo.existsById(id)){
-	     // return "redirect:/administradores";
-	   // }
+	  
+	  
+	  
 	
 }
