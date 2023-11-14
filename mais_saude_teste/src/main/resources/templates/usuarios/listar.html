@@ -44,7 +44,7 @@
                                                   <td th:text="${usuarios.senha}"></td>
                                                   <td th:text="${usuarios.permissao}"></td>
                                                   <td th:text="${usuarios.obs}"></td>
-                                            <td><a th:href="@{'/' + ${usuarios.id}}" class="btn btn-warning" >Alterar</a></td>
+                                            <td><a th:href="@{'/usuario-' + ${usuarios.id}}" class="btn btn-warning" >Alterar</a></td>
                                             <td><a th:href="@{deletar/{id}(id=${usuarios.id})}" class="btn btn-danger"  onclick="return confirm ('Confirma a ação ?')"   >  Excluir</a></td>
                                         </tr>
                                     </tbody>

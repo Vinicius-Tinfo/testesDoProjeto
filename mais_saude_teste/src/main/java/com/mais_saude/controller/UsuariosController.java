@@ -22,12 +22,12 @@ public class UsuariosController {
 	public String Usuarios(Model model) {
 	model.addAttribute("usuarios", usuariorepository.findAll());
 	
-		return "/usuarios";
+		return "/usuarios/listar";
 	}
 	@GetMapping("/cadastro-de-usuario")
 	public String Novo(Model model) {
 	
-		return "/cadastro";
+		return "/usuarios/cadastro";
 	}
 	@PostMapping(value="/usuario/criar")
 		public ModelAndView UsuarioModel(UsuariosModel usuarios) {
@@ -50,7 +50,7 @@ public class UsuariosController {
 	  //}
 	
 	
-	  @GetMapping("/{id}")
+	  @GetMapping("/usuario-{id}")
 	  public String busca(@PathVariable long id, Model model){
 	    Optional<UsuariosModel> usuarios = usuariorepository.findById(id);
 	    try{
@@ -58,7 +58,7 @@ public class UsuariosController {
 	    }
 	    catch(Exception err){ return "redirect:/"; }
 
-		return ("/alterar");
+		return ("usuarios/alterar");
 	  }
 
 	  @PostMapping("/{id}/atualizar")
