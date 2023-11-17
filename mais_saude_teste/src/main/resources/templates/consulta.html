@@ -1,0 +1,32 @@
+
+<div th:replace="partes-compartilhadas/topo"></div><!--Parte que importa o html responsavel pelo topo das paginas-->
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Novo Usuários</h1>
+                   
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4" style="padding: 30px;">
+                      <form method="post" th:action="@{/usuario/criar}"  style="margin: 10px" onsubmit="return confirm ('Confirma a ação ?')" th:object="${UsuarioModel}">
+						<div class="form-group">
+						<label for="exampleFormControlTextarea1">Example textarea</label>
+						 <textarea class="form-control" id="exampleFormControlTextarea1"  onkeyup="limite_textarea(this.value)" rows="3" maxlength="10"></textarea>
+						 <span id="cont">10</span><span>/10 Restantes</span>
+						 
+							  </div>
+                         
+					      		<div class="form-group">
+					    		<label for="exampleFormControlTextarea1">Example textarea</label>
+					    		<textarea class="form-control" id="exampleFormControlTextarea1"   rows="6"  ></textarea>
+					  		</div>
+                            <button type="submit" class="btn btn-primary">Enviar</button>
+                          </form>
+                        
+                    </div>
+<script src="/vinicius-mudancas.js"></script>
+                </div>
+                <!-- /.container-fluid -->
+              
+                <div th:replace="partes-compartilhadas/footer"></div><!--Parte que importa o html responsavel pela parte de baixo das paginas-->
